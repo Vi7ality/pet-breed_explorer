@@ -1,6 +1,6 @@
 'use client';
-import { getCatBreeds } from '../api/cat-api';
-import { getDogBreeds } from '../api/dog-api';
+import { getCatBreedList } from '../api/cat-api';
+import { getDogBreedList } from '../api/dog-api';
 
 interface QuantityProps {
   catQuantity?: number;
@@ -11,8 +11,8 @@ const getPets = async ({
   catQuantity = 6,
   dogQuantity = 6,
 }: QuantityProps = {}) => {
-  const cats = await getCatBreeds(catQuantity);
-  const dogs = await getDogBreeds(dogQuantity);
+  const cats = await getCatBreedList(catQuantity);
+  const dogs = await getDogBreedList(dogQuantity);
   return [...cats, ...dogs];
 };
 

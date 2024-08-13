@@ -8,9 +8,23 @@ const dogApi: AxiosInstance = axios.create({
   headers: { 'x-api-key': API_KEY },
 });
 
-export const getDogBreeds = async (quantity: number) => {
+export const getDogBreedList = async (quantity: number) => {
   try {
     const res = await dogApi.get(`breeds?limit=${quantity}`);
+    const breeds = res.data.map((breed) => {
+      return { species: 'dog', ...breed };
+    });
+    return breeds;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getDogBreed = async (id: string) => {
+  try {
+    const res = await dogApi.get(`breeds/${id}`);
     return res.data;
-  } catch (error) {}
+  } catch (error) {
+    console.error(error);
+  }
 };
