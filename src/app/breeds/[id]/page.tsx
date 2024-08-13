@@ -7,9 +7,8 @@ export interface PageProps {
 
 export default function Page({ params }: PageProps) {
   const [data, setData] = useState([]);
-  console.log(typeof params.id);
-  // const getBreedInfo = useCallback(async () => {}, []);
-  // useState();
+  const getBreedInfo = useCallback(async () => {}, []);
+  useState();
   return (
     <main>
       <h1>Breed page {params.id}</h1>
