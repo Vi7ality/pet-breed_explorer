@@ -8,8 +8,8 @@ interface QuantityProps {
 }
 
 const getPets = async ({
-  catQuantity = 5,
-  dogQuantity = 5,
+  catQuantity = 6,
+  dogQuantity = 6,
 }: QuantityProps = {}) => {
   const cats = await getCatBreeds(catQuantity);
   const dogs = await getDogBreeds(dogQuantity);
