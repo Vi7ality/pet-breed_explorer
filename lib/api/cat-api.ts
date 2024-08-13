@@ -8,9 +8,9 @@ const catApi: AxiosInstance = axios.create({
   headers: { 'x-api-key': API_KEY },
 });
 
-export const getCats = async (quantity: number) => {
+export const getCatBreeds = async (quantity: number) => {
   try {
-    const res = await catApi.get(`images/search?limit=${quantity}`);
+    const res = await catApi.get(`breeds?limit=${quantity}`);
     return res.data;
   } catch (error) {}
 };

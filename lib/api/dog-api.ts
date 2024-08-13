@@ -8,9 +8,9 @@ const dogApi: AxiosInstance = axios.create({
   headers: { 'x-api-key': API_KEY },
 });
 
-export const getDogs = async (quantity: number) => {
+export const getDogBreeds = async (quantity: number) => {
   try {
-    const res = await dogApi.get(`images/search?limit=${quantity}`);
+    const res = await dogApi.get(`breeds?limit=${quantity}`);
     return res.data;
   } catch (error) {}
 };
