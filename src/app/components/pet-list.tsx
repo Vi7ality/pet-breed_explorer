@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import getPets from '../../../lib/utils/getPets';
 
-export default function PetsList() {
+export default function PetList() {
   const [petList, setPetList] = useState([]);
   console.log(petList);
 
