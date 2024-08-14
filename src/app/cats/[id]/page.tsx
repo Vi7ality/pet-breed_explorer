@@ -31,6 +31,7 @@ export default function Page({ params }: PageProps) {
         ></img>
         <div>
           <h1>{breedInfo.name}</h1>
+          <p>{breedInfo.description}</p>
           {/* {Object.entries(breedInfo).map((entry) => {
             return (
               <div>
