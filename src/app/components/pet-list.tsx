@@ -29,6 +29,7 @@ export default function PetList() {
             name={item.name}
             id={item.id}
             url={item.image.url}
+            species={item.species}
           />
         ))}
     </ul>
