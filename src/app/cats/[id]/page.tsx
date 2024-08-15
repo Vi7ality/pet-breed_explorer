@@ -1,6 +1,7 @@
 'use client';
 import { useCallback, useState, useEffect } from 'react';
 import { getCatBreed } from '../../../../lib/api/cat-api';
+import Container from '@/app/components/container';
 
 export interface PageProps {
   params: { id: string };
@@ -24,18 +25,20 @@ export default function Page({ params }: PageProps) {
 
   return (
     <main>
-      <h1>Breed page {params.id}</h1>
-      <div className="flex">
-        <img
-          src={`https://cdn2.thecatapi.com/images/${breedInfo.reference_image_id}.jpg`}
-        ></img>
-        <div>
-          <h1>{breedInfo.name}</h1>
-          <p>{breedInfo.description}</p>
-          <p>Origin: {breedInfo.origin}</p>
-          <p>Temperament: {breedInfo.temperament}</p>
+      <Container>
+        <h1>Breed page {params.id}</h1>
+        <div className="flex">
+          <img
+            src={`https://cdn2.thecatapi.com/images/${breedInfo.reference_image_id}.jpg`}
+          ></img>
+          <div>
+            <h1>{breedInfo.name}</h1>
+            <p>{breedInfo.description}</p>
+            <p>Origin: {breedInfo.origin}</p>
+            <p>Temperament: {breedInfo.temperament}</p>
+          </div>
         </div>
-      </div>
+      </Container>
     </main>
   );
 }
