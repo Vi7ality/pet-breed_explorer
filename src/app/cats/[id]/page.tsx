@@ -32,15 +32,8 @@ export default function Page({ params }: PageProps) {
         <div>
           <h1>{breedInfo.name}</h1>
           <p>{breedInfo.description}</p>
-          {/* {Object.entries(breedInfo).map((entry) => {
-            return (
-              <div>
-                <p>{entry[0]}</p>
-                <p>{entry[1]}</p>
-              </div>
-            );
-          })} */}
-          <ul></ul>
+          <p>Origin: {breedInfo.origin}</p>
+          <p>Temperament: {breedInfo.temperament}</p>
         </div>
       </div>
     </main>
