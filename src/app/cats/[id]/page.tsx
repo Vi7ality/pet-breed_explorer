@@ -29,18 +29,30 @@ export default function Page({ params }: PageProps) {
     <main>
       <Header />
       <Container>
-        <div className="flex">
-          <Image
-            width={400}
-            height={600}
-            alt="cat image"
-            src={`https://cdn2.thecatapi.com/images/${breedInfo.reference_image_id}.jpg`}
-          ></Image>
-          <div>
-            <h1>{breedInfo.name}</h1>
-            <p>{breedInfo.description}</p>
-            <p>Origin: {breedInfo.origin}</p>
-            <p>Temperament: {breedInfo.temperament}</p>
+        <div className="flex flex-col overflow-hidden rounded-lg bg-white shadow-lg md:flex-row">
+          {/* Image Section */}
+          <div className="md:w-1/2">
+            <Image
+              width={600}
+              height={400}
+              alt={`${breedInfo.name} image`}
+              src={`https://cdn2.thecatapi.com/images/${breedInfo.reference_image_id}.jpg`}
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          {/* Text Section */}
+          <div className="flex flex-col justify-center p-6 md:w-1/2">
+            <h1 className="mb-4 text-3xl font-bold text-gray-900">
+              {breedInfo.name}
+            </h1>
+            <p className="mb-4 text-gray-700">{breedInfo.description}</p>
+            <p className="mb-2 text-gray-600">
+              <strong>Origin:</strong> {breedInfo.origin}
+            </p>
+            <p className="text-gray-600">
+              <strong>Temperament:</strong> {breedInfo.temperament}
+            </p>
           </div>
         </div>
       </Container>
