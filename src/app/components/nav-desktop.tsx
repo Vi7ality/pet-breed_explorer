@@ -9,9 +9,6 @@ export default function NavDesktop() {
       <Link href="/about" className="text-gray-700 hover:text-gray-900">
         About
       </Link>
-      <Link href="/services" className="text-gray-700 hover:text-gray-900">
-        Services
-      </Link>
       <Link href="/contact" className="text-gray-700 hover:text-gray-900">
         Contact
       </Link>

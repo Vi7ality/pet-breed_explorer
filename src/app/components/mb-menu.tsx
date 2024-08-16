@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function MobileMenu() {
   return (
@@ -15,12 +15,6 @@ export default function MobileMenu() {
           className="block rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100"
         >
           About
-        </Link>
-        <Link
-          href="/services"
-          className="block rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100"
-        >
-          Services
         </Link>
         <Link
           href="/contact"
