@@ -38,3 +38,8 @@ export const getCatBreed = async (id: string) => {
     console.error(error);
   }
 };
+
+export const searchCatBreeds = async (query: string) => {
+  const response = await catApi.get(`breeds/search?q=${query}`);
+  return response.data;
+};

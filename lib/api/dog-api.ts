@@ -29,3 +29,8 @@ export const getDogBreed = async (id: string) => {
     console.error(error);
   }
 };
+
+export const searchDogBreeds = async (query: string) => {
+  const response = await dogApi.get(`breeds/search?q=${query}`);
+  return response.data;
+};
