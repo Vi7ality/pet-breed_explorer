@@ -2,6 +2,8 @@
 import { useCallback, useState, useEffect } from 'react';
 import { getCatBreed } from '../../../../lib/api/cat-api';
 import Container from '@/app/components/container';
+import Header from '@/app/components/header';
+import Image from 'next/image';
 
 export interface PageProps {
   params: { id: string };
@@ -25,13 +27,15 @@ export default function Page({ params }: PageProps) {
 
   return (
     <main>
-      
+      <Header />
       <Container>
-        <h1>Breed page {params.id}</h1>
         <div className="flex">
-          <img
+          <Image
+            width={400}
+            height={600}
+            alt="cat image"
             src={`https://cdn2.thecatapi.com/images/${breedInfo.reference_image_id}.jpg`}
-          ></img>
+          ></Image>
           <div>
             <h1>{breedInfo.name}</h1>
             <p>{breedInfo.description}</p>
