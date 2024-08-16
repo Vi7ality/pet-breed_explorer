@@ -1,6 +1,6 @@
 'use client';
-import { useCallback, useState, useEffect } from 'react';
-import { getCatBreed } from '../../../../../lib/api/cat-api';
+import { useCallback, useEffect, useState } from 'react';
+import { getDogBreed } from '../../../../../lib/api/dog-api';
 import Container from '@/app/components/container';
 import Image from 'next/image';
 
@@ -14,8 +14,12 @@ interface BreedInfo {
   description: string;
   origin: string;
   temperament: string;
-  hypoallergenic?: number;
-  intelligence?: number;
+  breed_group: string;
+  life_span: string;
+  weight: {
+    imperial: string;
+    metric: string;
+  };
   [key: string]: unknown;
 }
 
@@ -23,7 +27,7 @@ export default function Page({ params }: PageProps) {
   const [breedInfo, setBreedInfo] = useState<BreedInfo | null>(null);
 
   const getBreedInfo = useCallback(async () => {
-    const data = await getCatBreed(params.id);
+    const data = await getDogBreed(params.id);
     if (data) {
       setBreedInfo(data);
     }
@@ -32,9 +36,7 @@ export default function Page({ params }: PageProps) {
   useEffect(() => {
     getBreedInfo();
   }, [getBreedInfo]);
-
   console.log('breedInfo', breedInfo);
-
   return (
     <Container>
       {breedInfo && (
@@ -44,7 +46,7 @@ export default function Page({ params }: PageProps) {
               width={600}
               height={400}
               alt={`${breedInfo.name} image`}
-              src={`https://cdn2.thecatapi.com/images/${breedInfo.reference_image_id}.jpg`}
+              src={`https://cdn2.thedogapi.com/images/${breedInfo.reference_image_id}.jpg`}
               className="h-full w-full object-cover"
             />
           </div>
@@ -60,10 +62,13 @@ export default function Page({ params }: PageProps) {
               <strong>Temperament:</strong> {breedInfo.temperament}
             </p>
             <p className="text-gray-600">
-              <strong>hypoallergenic:</strong> {breedInfo.hypoallergenic}
+              <strong>Breed group:</strong> {breedInfo.breed_group}
             </p>
             <p className="text-gray-600">
-              <strong>intelligence:</strong> {breedInfo.intelligence}
+              <strong>Life span:</strong> {breedInfo.life_span}
+            </p>
+            <p className="text-gray-600">
+              <strong>Weight:</strong> {breedInfo.weight.metric} kg
             </p>
           </div>
         </section>
