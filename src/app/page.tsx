@@ -8,7 +8,9 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <CatSearchAutocomplete />
+        <section className="py-5">
+          <CatSearchAutocomplete />
+        </section>
         <PetList />
       </main>
       <Footer />
