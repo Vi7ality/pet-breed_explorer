@@ -36,7 +36,6 @@ export default function Page({ params }: PageProps) {
   useEffect(() => {
     getBreedInfo();
   }, [getBreedInfo]);
-  console.log('breedInfo', breedInfo);
   return (
     <Container>
       {breedInfo && (
