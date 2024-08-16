@@ -3,15 +3,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import getPets from '../../../lib/utils/getPets';
 import PetListItem from './pet-list-item';
+import { PetInterface } from '../../../lib/api/cat-api';
 
-interface Pet {
-  id: string;
-  name: string;
-  image: {
-    url: string;
-  };
-  species: 'cat' | 'dog';
-  [key: string]: unknown;
+interface Pet extends PetInterface {
+  species: 'cat' | 'dog;';
 }
 
 export default function PetList() {
