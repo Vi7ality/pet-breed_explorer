@@ -25,6 +25,7 @@ export default function Page({ params }: PageProps) {
 
   return (
     <main>
+      
       <Container>
         <h1>Breed page {params.id}</h1>
         <div className="flex">
