@@ -40,6 +40,10 @@ export const getCatBreed = async (id: string) => {
 };
 
 export const searchCatBreeds = async (query: string) => {
-  const response = await catApi.get(`breeds/search?q=${query}`);
-  return response.data;
+  const res = await catApi.get(`breeds/search?q=${query}`);
+      const breeds = res.data.map((breed: PetInterface) => {
+        return { species: 'cat', ...breed };
+      });
+
+      return breeds;
 };

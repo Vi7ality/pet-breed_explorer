@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { searchCatBreeds } from '../../../lib/api/cat-api';
 import Container from './container';
-import { searchDogBreeds } from '../../../lib/api/dog-api';
+import searchBreeds from '../../../lib/utils/searchBreeds';
+import Link from 'next/link';
 
 interface CatBreed {
   id: string;
   name: string;
+  species: string;
 }
 
 export default function CatSearchAutocomplete() {
@@ -18,9 +19,8 @@ export default function CatSearchAutocomplete() {
     const fetchBreeds = async () => {
       if (query.trim() !== '') {
         try {
-          const cats = await searchCatBreeds(query);
-          const dogs = await searchDogBreeds(query);
-          setFilteredBreeds([...cats, ...dogs]);
+          const breeds = await searchBreeds(query);
+          setFilteredBreeds(breeds);
         } catch (error) {
           console.error('Error fetching cat breeds:', error);
         }
@@ -32,12 +32,10 @@ export default function CatSearchAutocomplete() {
     fetchBreeds();
   }, [query]);
 
-  console.log('filteredBreeds', filteredBreeds);
-
-  const handleSelectBreed = useCallback((breed: CatBreed) => {
-    setQuery(breed.name);
-    setFilteredBreeds([]);
-  }, []);
+  // const handleSelectBreed = (breed: CatBreed) => {
+  //   setQuery(breed.name);
+  //   setFilteredBreeds([]);
+  // };
 
   return (
     <Container className="flex justify-center">
@@ -55,9 +53,17 @@ export default function CatSearchAutocomplete() {
               <li
                 key={breed.id}
                 className="cursor-pointer px-4 py-2 hover:bg-gray-100"
-                onClick={() => handleSelectBreed(breed)}
+                // onClick={() => handleSelectBreed(breed)}
               >
-                {breed.name}
+                <Link
+                  href={
+                    breed.species === 'cat'
+                      ? `/cats/${breed.id}`
+                      : `/dogs/${breed.id}`
+                  }
+                >
+                  {breed.name}
+                </Link>
               </li>
             ))}
           </ul>

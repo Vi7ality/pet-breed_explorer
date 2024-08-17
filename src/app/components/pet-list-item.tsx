@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface ListItemProps {
@@ -15,7 +16,13 @@ export default function PetListItem({ id, url, name, species }: ListItemProps) {
       className="hover:translateY(0) relative overflow-hidden rounded-lg"
     >
       <Link href={`/${pageTo}/${id}`}>
-        <img src={url} alt={name} className="h-full w-full object-cover"></img>
+        <Image
+          width={600}
+          height={600}
+          src={url}
+          alt={name}
+          className="h-full w-full object-cover"
+        ></Image>
         <h3 className="absolute bottom-0 left-0 w-full bg-green-600 py-5 text-center text-white">
           {name}
         </h3>

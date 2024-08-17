@@ -31,6 +31,9 @@ export const getDogBreed = async (id: string) => {
 };
 
 export const searchDogBreeds = async (query: string) => {
-  const response = await dogApi.get(`breeds/search?q=${query}`);
-  return response.data;
+  const res = await dogApi.get(`breeds/search?q=${query}`);
+  const breeds = res.data.map((breed: PetInterface) => {
+    return { species: 'dog', ...breed };
+  });
+  return breeds;
 };
