@@ -33,8 +33,6 @@ export default function Page({ params }: PageProps) {
     getBreedInfo();
   }, [getBreedInfo]);
 
-  console.log('breedInfo', breedInfo);
-
   return (
     <Container>
       {breedInfo && (
