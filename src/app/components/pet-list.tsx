@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import getPets from '../../../lib/utils/getPets';
 import PetListItem from './pet-list-item';
-import { PetInterface } from '../../../lib/api/cat-api';
+import { PetInterface } from '../../../lib/utils/types';
 
 interface Pet extends PetInterface {
   species: 'cat' | 'dog;';

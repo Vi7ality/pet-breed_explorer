@@ -1,6 +1,4 @@
-'use client';
-import { useCallback, useEffect, useState } from 'react';
-import { getDogBreed } from '../../../../../lib/api/dog-api';
+import { getDogBreed, getDogBreedList } from '../../../../../lib/api/dog-api';
 import Container from '@/app/components/container';
 import Image from 'next/image';
 
@@ -8,34 +6,29 @@ export interface PageProps {
   params: { id: string };
 }
 
-interface BreedInfo {
-  reference_image_id: string;
-  name: string;
-  description: string;
-  origin: string;
-  temperament: string;
-  breed_group: string;
-  life_span: string;
-  weight: {
-    imperial: string;
-    metric: string;
-  };
-  [key: string]: unknown;
+// interface BreedInfo {
+//   reference_image_id: string;
+//   name: string;
+//   description: string;
+//   origin: string;
+//   temperament: string;
+//   breed_group: string;
+//   life_span: string;
+//   weight: {
+//     imperial: string;
+//     metric: string;
+//   };
+//   [key: string]: unknown;
+// }
+
+export async function generateStaticParams() {
+  const data = await getDogBreedList(12);
+  return data;
 }
 
-export default function Page({ params }: PageProps) {
-  const [breedInfo, setBreedInfo] = useState<BreedInfo | null>(null);
+export default async function Page({ params }: PageProps) {
+  const breedInfo = await getDogBreed(params.id);
 
-  const getBreedInfo = useCallback(async () => {
-    const data = await getDogBreed(params.id);
-    if (data) {
-      setBreedInfo(data);
-    }
-  }, [params.id]);
-
-  useEffect(() => {
-    getBreedInfo();
-  }, [getBreedInfo]);
   return (
     <Container>
       {breedInfo && (

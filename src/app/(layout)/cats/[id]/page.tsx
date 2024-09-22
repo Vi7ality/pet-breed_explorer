@@ -1,4 +1,3 @@
-// import { useCallback, useState, useEffect } from 'react';
 import { getCatBreed, getCatBreedList } from '../../../../../lib/api/cat-api';
 import Container from '@/app/components/container';
 import Image from 'next/image';
@@ -7,19 +6,19 @@ export interface PageProps {
   params: { id: string };
 }
 
-interface BreedInfo {
-  reference_image_id: string;
-  name: string;
-  description: string;
-  origin: string;
-  temperament: string;
-  hypoallergenic?: number;
-  intelligence?: number;
-  [key: string]: unknown;
-}
+// interface BreedInfo {
+//   reference_image_id: string;
+//   name: string;
+//   description: string;
+//   origin: string;
+//   temperament: string;
+//   hypoallergenic?: number;
+//   intelligence?: number;
+//   [key: string]: unknown;
+// }
 
 export async function generateStaticParams() {
-  const data = getCatBreedList(12);
+  const data = await getCatBreedList(12);
   return data;
 }
 

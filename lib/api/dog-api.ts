@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { PetInterface } from './cat-api';
+import { PetInterface } from '../utils/types';
 
 const DOG_API_URL = 'https://api.thedogapi.com/v1';
 const API_KEY = process.env.NEXT_PUBLIC_DOG_APIKEY;
@@ -13,7 +13,7 @@ export const getDogBreedList = async (quantity: number) => {
   try {
     const res = await dogApi.get(`breeds?limit=${quantity}`);
     const breeds = res.data.map((breed: PetInterface) => {
-      return { species: 'dog', ...breed };
+      return { species: 'dog', ...breed, id: String(breed.id) };
     });
     return breeds;
   } catch (error) {
