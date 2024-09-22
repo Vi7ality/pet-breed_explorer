@@ -1,6 +1,5 @@
-'use client';
-import { useCallback, useState, useEffect } from 'react';
-import { getCatBreed } from '../../../../../lib/api/cat-api';
+// import { useCallback, useState, useEffect } from 'react';
+import { getCatBreed, getCatBreedList } from '../../../../../lib/api/cat-api';
 import Container from '@/app/components/container';
 import Image from 'next/image';
 
@@ -19,19 +18,13 @@ interface BreedInfo {
   [key: string]: unknown;
 }
 
-export default function Page({ params }: PageProps) {
-  const [breedInfo, setBreedInfo] = useState<BreedInfo | null>(null);
+export async function generateStaticParams() {
+  const data = getCatBreedList(12);
+  return data;
+}
 
-  const getBreedInfo = useCallback(async () => {
-    const data = await getCatBreed(params.id);
-    if (data) {
-      setBreedInfo(data);
-    }
-  }, [params.id]);
-
-  useEffect(() => {
-    getBreedInfo();
-  }, [getBreedInfo]);
+export default async function Page({ params }: PageProps) {
+  const breedInfo = await getCatBreed(params.id);
 
   return (
     <Container>
