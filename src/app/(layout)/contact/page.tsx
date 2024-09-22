@@ -1,6 +1,4 @@
 import Container from '@/app/components/container';
-import Footer from '@/app/components/footer';
-import Header from '@/app/components/header';
 import React from 'react';
 import { FaTelegramPlane, FaGithub, FaEnvelope } from 'react-icons/fa';
 
