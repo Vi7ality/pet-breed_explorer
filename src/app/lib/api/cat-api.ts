@@ -1,10 +1,8 @@
-import axios, {  AxiosInstance } from 'axios';
-import { PetInterface } from '../utils/types';
+import axios, { AxiosInstance } from 'axios';
+import { PetInterface } from '../types/types';
 
 const CAT_API_URL = 'https://api.thecatapi.com/v1';
 const API_KEY = process.env.NEXT_PUBLIC_CAT_APIKEY;
-
-
 
 const catApi: AxiosInstance = axios.create({
   baseURL: CAT_API_URL,

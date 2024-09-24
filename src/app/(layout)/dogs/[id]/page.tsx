@@ -1,4 +1,4 @@
-import { getDogBreed, getDogBreedList } from '../../../../../lib/api/dog-api';
+import { getDogBreed, getDogBreedList } from '../../../lib/api/dog-api';
 import Container from '@/app/components/container';
 import Image from 'next/image';
 

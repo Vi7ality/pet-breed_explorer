@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Container from './container';
-import searchBreeds from '../../../lib/utils/searchBreeds';
+import searchBreeds from '../lib/utils/searchBreeds';
 import Link from 'next/link';
 
 interface CatBreed {

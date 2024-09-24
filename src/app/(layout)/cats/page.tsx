@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { getCatBreedList } from '../../../../lib/api/cat-api';
+import { getCatBreedList } from '../../lib/api/cat-api';
 import PetListItem from '@/app/components/pet-list-item';
-import { PetInterface } from '../../../../lib/utils/types';
+import { PetInterface } from '../../lib/types/types';
 
 interface Pet extends PetInterface {
   species: 'cat' | 'dog;';

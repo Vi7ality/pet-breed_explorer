@@ -1,6 +1,6 @@
 import PetListItem from '@/app/components/pet-list-item';
-import { getDogBreedList } from '../../../../lib/api/dog-api';
-import { PetInterface } from '../../../../lib/utils/types';
+import { getDogBreedList } from '../../lib/api/dog-api';
+import { PetInterface } from '../../lib/types/types';
 
 interface Pet extends PetInterface {
   species: 'cat' | 'dog;';

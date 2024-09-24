@@ -1,4 +1,4 @@
-import { getCatBreed, getCatBreedList } from '../../../../../lib/api/cat-api';
+import { getCatBreed, getCatBreedList } from '../../../lib/api/cat-api';
 import Container from '@/app/components/container';
 import Image from 'next/image';
 

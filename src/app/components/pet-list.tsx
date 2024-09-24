@@ -1,9 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import getPets from '../../../lib/utils/getPets';
+import getPets from '@/app/lib/utils/getPets';
 import PetListItem from './pet-list-item';
-import { PetInterface } from '../../../lib/utils/types';
+import { PetInterface } from '@/app/lib/types/types';
 
 interface Pet extends PetInterface {
   species: 'cat' | 'dog;';

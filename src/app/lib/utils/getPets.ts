@@ -7,13 +7,11 @@ interface QuantityProps {
   dogQuantity?: number;
 }
 
-const getPets = async ({
+export default async function getPets({
   catQuantity = 6,
   dogQuantity = 6,
-}: QuantityProps = {}) => {
+}: QuantityProps = {}) {
   const cats = await getCatBreedList(catQuantity);
   const dogs = await getDogBreedList(dogQuantity);
   return [...cats, ...dogs];
-};
-
-export default getPets;
+}
