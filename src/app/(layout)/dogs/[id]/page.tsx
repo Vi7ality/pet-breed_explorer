@@ -1,3 +1,4 @@
+import BreedDetails from '@/app/components/breed-info';
 import { getDogBreed, getDogBreedList } from '../../../lib/api/dog-api';
 import Container from '@/app/components/container';
 import Image from 'next/image';
@@ -42,27 +43,7 @@ export default async function Page({ params }: PageProps) {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="flex flex-col justify-center p-6 md:w-1/2">
-            <h1 className="mb-4 text-3xl font-bold text-gray-900">
-              {breedInfo.name}
-            </h1>
-            <p className="mb-4 text-gray-700">{breedInfo.description}</p>
-            <p className="mb-2 text-gray-600">
-              <strong>Origin:</strong> {breedInfo.origin}
-            </p>
-            <p className="text-gray-600">
-              <strong>Temperament:</strong> {breedInfo.temperament}
-            </p>
-            <p className="text-gray-600">
-              <strong>Breed group:</strong> {breedInfo.breed_group}
-            </p>
-            <p className="text-gray-600">
-              <strong>Life span:</strong> {breedInfo.life_span}
-            </p>
-            <p className="text-gray-600">
-              <strong>Weight:</strong> {breedInfo.weight.metric} kg
-            </p>
-          </div>
+          <BreedDetails breedInfo={breedInfo} />
         </section>
       )}
     </Container>
